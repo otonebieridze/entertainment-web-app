@@ -1,0 +1,41 @@
+.menu-section {
+  width: 100px;
+  height: calc(100vh - 20px);
+  background: #161D2F;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  width: 33px;
+  height: 25px;
+  margin-top: 30px;
+}
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.menu img {
+  width: 20px;
+  height: 20px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.menu img:hover {
+  width: 25px;
+  height: 25px;
+}
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 30px;
+  cursor: pointer;
+}

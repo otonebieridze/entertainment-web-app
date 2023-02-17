@@ -1,0 +1,129 @@
+.movies-div {
+  width: calc(100% - 80px);
+  min-height: 300px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 30px;
+}
+.movies-div-title {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 27px;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  color: #FFFFFF;
+}
+.movies-img-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 20px;
+}
+.movies-img-div {
+  min-width: 280px;
+  max-width: 280px;
+  height: 250px;
+}
+.movies-img-box {
+  min-width: 280px;
+  max-width: 280px;
+  height: 174px;
+  position: relative;
+}
+.movies-img-box:hover .movies-image {
+  filter: brightness(40%);
+}
+.movies-img-box:hover .play-div {
+  display: flex;
+}
+.movies-image {
+  min-width: 280px;
+  max-width: 280px;
+  height: 174px;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+.movies-movie-description {
+  width: 150px;
+  height: 55px;
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-top: 8px;
+}
+.movies-movie-description p {
+  font-size: 18px;
+  margin-top: 5px;
+}
+.movies-movie-description span {
+  font-size: 13px;
+}
+
+.play-div {
+  width: 117px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.3);
+  mix-blend-mode: normal;
+  border-radius: 28.5px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+}
+.play-div:hover {
+  display: flex;
+}
+.play-img {
+  margin-left: 9px;
+}
+.play-span {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-left: 19px;
+}
+.circle {
+  width: 32px;
+  height: 32px;
+  background: #10141E;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.circle:hover {
+  background-color: white;
+}
+.bookmarked-logo {
+  width: 12px;
+  height: 14px;
+  background: url("../../assets/BookmarkedIcon.png");
+}
+.bookmarked-logo-active {
+  width: 12px;
+  height: 14px;
+  background: url("../../assets/BookmarkedIconActive.png");
+}
+.circle:hover .bookmarked-logo {
+  background: url("../../assets/BookmarkedIconHovered.png");
+}
+.circle:hover .bookmarked-logo-active {
+  background: url("../../assets/BookmarkedIconHovered.png");
+}
