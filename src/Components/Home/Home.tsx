@@ -18,7 +18,7 @@ export default function Home() {
               <div key={index} className={styles["trending-img-div"]}>
                 <img
                   className={styles["trending-image"]}
-                  src={`/entertainment-web-app/src/${trend.thumbnail.trending?.small}`}
+                  src={`./entertainment-web-app/src/${trend.thumbnail.trending?.small}`}
                   alt="trend"
                 />
                 <div className={styles.circle}>
