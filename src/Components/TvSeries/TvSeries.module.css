@@ -114,16 +114,16 @@
 .bookmarked-logo {
   width: 12px;
   height: 14px;
-  background: url("../../assets/BookmarkedIcon.png");
+  background: url("./assets/BookmarkedIcon.png");
 }
 .bookmarked-logo-active {
   width: 12px;
   height: 14px;
-  background: url("../../assets/BookmarkedIconActive.png");
+  background: url("./assets/BookmarkedIconActive.png");
 }
 .circle:hover .bookmarked-logo {
-  background: url("../../assets/BookmarkedIconHovered.png");
+  background: url("./assets/BookmarkedIconHovered.png");
 }
 .circle:hover .bookmarked-logo-active {
-  background: url("../../assets/BookmarkedIconHovered.png");
+  background: url("./assets/BookmarkedIconHovered.png");
 }
