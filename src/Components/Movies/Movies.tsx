@@ -1,7 +1,5 @@
 import data from "../../data.json";
 import styles from "./Movies.module.css";
-import PlayIcon from "../../assets/PlayIcon.png";
-import MoviesLogoActive from "../../assets/MoviesLogoActive.png";
 
 export default function Movies() {
   let movies = data.filter((obj) => obj.category === "Movie");
@@ -16,7 +14,7 @@ export default function Movies() {
               <div className={styles["movies-img-box"]}>
                 <img
                   className={styles["movies-image"]}
-                  src={`/entertainment-web-app/src/${movie.thumbnail.regular.small}`}
+                  src={movie.thumbnail.regular.small}
                   alt="movie-img"
                 />
                 <div className={styles.circle}>
@@ -29,7 +27,7 @@ export default function Movies() {
                 <div className={styles["play-div"]}>
                   <img
                     className={styles["play-img"]}
-                    src={PlayIcon}
+                    src="./assets/PlayIcon.png"
                     alt="play-icon"
                   />
                   <span className={styles["play-span"]}>Play</span>
@@ -47,7 +45,7 @@ export default function Movies() {
                   <div className={styles["mini-circle"]}></div>
                   <img
                     style={{ width: "12px", height: "12px" }}
-                    src={MoviesLogoActive}
+                    src="./assets/MoviesLogoActive.png"
                     alt="movies-logo"
                   />
                   <span>{movie.category}</span>

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./HomePage.module.css";
-import SearchIcon from "../../assets/SearchIcon.png";
 
 import Menu from "../../Components/Menu/Menu";
 import Home from "../../Components/Home/Home";
@@ -19,7 +18,7 @@ export default function HomePage() {
         <div className={styles["search-div"]}>
           <img
             className={styles["search-icon"]}
-            src={SearchIcon}
+            src="./assets/SearchIcon.png"
             alt="search-icon"
           />
           <input

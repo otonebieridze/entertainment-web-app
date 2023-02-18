@@ -1,8 +1,5 @@
 import data from "../../data.json";
 import styles from "./Home.module.css";
-import PlayIcon from "../../assets/PlayIcon.png";
-import MoviesLogoActive from "../../assets/MoviesLogoActive.png";
-import TvSeriesLogoActive from "../../assets/TvSeriesLogoActive.png";
 
 export default function Home() {
   let trends = data.filter((obj) => obj.isTrending === true);
@@ -18,7 +15,7 @@ export default function Home() {
               <div key={index} className={styles["trending-img-div"]}>
                 <img
                   className={styles["trending-image"]}
-                  src={`./entertainment-web-app/src/${trend.thumbnail.trending?.small}`}
+                  src={trend.thumbnail.trending?.small}
                   alt="trend"
                 />
                 <div className={styles.circle}>
@@ -27,7 +24,7 @@ export default function Home() {
                 <div className={styles["play-div"]}>
                   <img
                     className={styles["play-img"]}
-                    src={PlayIcon}
+                    src="./assets/PlayIcon.png"
                     alt="play-icon"
                   />
                   <span className={styles["play-span"]}>Play</span>
@@ -47,8 +44,8 @@ export default function Home() {
                       style={{ width: "12px", height: "12px" }}
                       src={
                         trend.category === "Movie"
-                          ? MoviesLogoActive
-                          : TvSeriesLogoActive
+                          ? "./assets/MoviesLogoActive.png"
+                          : "./assets/TvSeriesLogoActive.png"
                       }
                       alt="movies-tvseries-logo"
                     />
@@ -75,7 +72,7 @@ export default function Home() {
                 <div className={styles["recommended-img-box"]}>
                   <img
                     className={styles["recommended-image"]}
-                    src={`/entertainment-web-app/src/${notTrend.thumbnail.regular.small}`}
+                    src={notTrend.thumbnail.regular.small}
                     alt="not-trend-movie-img"
                   />
                   <div className={styles.circle}>
@@ -88,7 +85,7 @@ export default function Home() {
                   <div className={styles["play-div"]}>
                     <img
                       className={styles["play-img"]}
-                      src={PlayIcon}
+                      src="./assets/PlayIcon.png"
                       alt="play-icon"
                     />
                     <span className={styles["play-span"]}>Play</span>
@@ -108,8 +105,8 @@ export default function Home() {
                       style={{ width: "12px", height: "12px" }}
                       src={
                         notTrend.category === "Movie"
-                          ? MoviesLogoActive
-                          : TvSeriesLogoActive
+                          ? "./assets/MoviesLogoActive.png"
+                          : "./assets/TvSeriesLogoActive.png"
                       }
                       alt="movies-tvseries-logo"
                     />

@@ -1,23 +1,12 @@
 import { useState } from "react";
 import styles from "./Menu.module.css";
 
-import Logo from "../../assets/Logo.png";
-import TrendingLogo from "../../assets/TrendingLogo.png";
-import TrendingLogoActive from "../../assets/TrendingLogoActive.png";
-import MoviesLogo from "../../assets/MoviesLogo.png";
-import MoviesLogoActive from "../../assets/MoviesLogoActive.png";
-import TvSeriesLogo from "../../assets/TvSeriesLogo.png";
-import TvSeriesLogoActive from "../../assets/TvSeriesLogoActive.png";
-import BookmarkedLogo from "../../assets/BookmarkedLogo.png";
-import BookmarkedLogoActive from "../../assets/BookmarkedLogoActive.png";
-import DefaultProfile from "../../assets/DefaultProfile.png";
-
 export default function Menu({ setCurrentComponent }: any) {
   const [activeLogo, setActiveLogo] = useState("TrendingLogo");
 
   return (
     <section className={styles["menu-section"]}>
-      <img className={styles.logo} src={Logo} alt="logo" />
+      <img className={styles.logo} src="./assets/Logo.png" alt="logo" />
       <div className={styles["menu"]}>
         <img
           onClick={() => {
@@ -25,7 +14,7 @@ export default function Menu({ setCurrentComponent }: any) {
             setCurrentComponent("Home")
           }}
           src={
-            activeLogo === "TrendingLogo" ? TrendingLogoActive : TrendingLogo
+            activeLogo === "TrendingLogo" ? "./assets/TrendingLogoActive.png" : "./assets/TrendingLogo.png"
           }
           alt="trending-logo"
         />
@@ -34,7 +23,7 @@ export default function Menu({ setCurrentComponent }: any) {
             setActiveLogo("MoviesLogo")
             setCurrentComponent("Movies")
           }}
-          src={activeLogo === "MoviesLogo" ? MoviesLogoActive : MoviesLogo}
+          src={activeLogo === "MoviesLogo" ? "./assets/MoviesLogoActive.png" : "./assets/MoviesLogo.png"}
           alt="movies-Logo"
         />
         <img
@@ -43,7 +32,7 @@ export default function Menu({ setCurrentComponent }: any) {
             setCurrentComponent("TvSeries")
           }}
           src={
-            activeLogo === "TvSeriesLogo" ? TvSeriesLogoActive : TvSeriesLogo
+            activeLogo === "TvSeriesLogo" ? "./assets/TvSeriesLogoActive.png" : "./assets/TvSeriesLogo.png"
           }
           alt="tvseries-logo"
         />
@@ -54,15 +43,15 @@ export default function Menu({ setCurrentComponent }: any) {
           }}
           src={
             activeLogo === "BookmarkedLogo"
-              ? BookmarkedLogoActive
-              : BookmarkedLogo
+              ? "./assets/BookmarkedLogoActive.png"
+              : "./assets/BookmarkedLogo.png"
           }
           alt="tvseries-logo"
         />
       </div>
       <img
         className={styles["profile-photo"]}
-        src={DefaultProfile}
+        src="./assets/DefaultProfile.png"
         alt="default-profile"
       />
     </section>

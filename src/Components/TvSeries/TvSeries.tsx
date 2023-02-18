@@ -1,7 +1,5 @@
 import data from "../../data.json";
 import styles from "./TvSeries.module.css";
-import PlayIcon from "../../assets/PlayIcon.png";
-import TvSeriesLogoActive from "../../assets/TvSeriesLogoActive.png";
 
 export default function TvSeries() {
   let tvSeries = data.filter((obj) => obj.category === "TV Series");
@@ -16,7 +14,7 @@ export default function TvSeries() {
               <div className={styles["tvseries-img-box"]}>
                 <img
                   className={styles["tvseries-image"]}
-                  src={`/entertainment-web-app/src/${item.thumbnail.regular.small}`}
+                  src={item.thumbnail.regular.small}
                   alt="tv-series-img"
                 />
                 <div className={styles.circle}>
@@ -29,7 +27,7 @@ export default function TvSeries() {
                 <div className={styles["play-div"]}>
                   <img
                     className={styles["play-img"]}
-                    src={PlayIcon}
+                    src="./assets/PlayIcon.png"
                     alt="play-icon"
                   />
                   <span className={styles["play-span"]}>Play</span>
@@ -47,7 +45,7 @@ export default function TvSeries() {
                   <div className={styles["mini-circle"]}></div>
                   <img
                     style={{ width: "12px", height: "12px" }}
-                    src={TvSeriesLogoActive}
+                    src="./assets/TvSeriesLogoActive.png"
                     alt="tv-series-logo"
                   />
                   <span>{item.category}</span>
