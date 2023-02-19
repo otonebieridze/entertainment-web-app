@@ -10,7 +10,11 @@ import BookMark from "../../Components/BookMark/BookMark";
 
 export default function HomePage() {
   const [currentComponent, setCurrentComponent] = useState("Home");
-  const [data, setData] = useState(importedData)
+  const [data, setData] = useState(importedData);
+
+  const handleInputChange = (e: any) => {
+    setData(importedData.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase())));
+  }
 
   return (
     <div className={styles["container"]}>
@@ -27,6 +31,7 @@ export default function HomePage() {
             className={styles["search-inp"]}
             type="text"
             placeholder="Search for movies or TV series"
+            onChange={handleInputChange}
           />
         </div>
 
