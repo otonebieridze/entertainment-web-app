@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./HomePage.module.css";
+import importedData from "../../data.json";
 
 import Menu from "../../Components/Menu/Menu";
 import Home from "../../Components/Home/Home";
@@ -9,6 +10,7 @@ import BookMark from "../../Components/BookMark/BookMark";
 
 export default function HomePage() {
   const [currentComponent, setCurrentComponent] = useState("Home");
+  const [data, setData] = useState(importedData)
 
   return (
     <div className={styles["container"]}>
@@ -28,10 +30,10 @@ export default function HomePage() {
           />
         </div>
 
-        {currentComponent === "Home" && <Home />}
-        {currentComponent === "Movies" && <Movies />}
-        {currentComponent === "TvSeries" && <TvSeries />}
-        {currentComponent === "BookMark" && <BookMark />}
+        {currentComponent === "Home" && <Home data={data} setData={setData} />}
+        {currentComponent === "Movies" && <Movies data={data} setData={setData} />}
+        {currentComponent === "TvSeries" && <TvSeries data={data} setData={setData} />}
+        {currentComponent === "BookMark" && <BookMark data={data} setData={setData} />}
       </section>
     </div>
   );

@@ -1,9 +1,55 @@
-import data from "../../data.json";
 import styles from "./Home.module.css";
 
-export default function Home() {
-  let trends = data.filter((obj) => obj.isTrending === true);
-  let notTrends = data.filter((obj) => obj.isTrending === false);
+type DataItem = {
+  title: string;
+  thumbnail: {
+    trending?: {
+      small: string;
+      large: string;
+    };
+    regular: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  year: number;
+  category: string;
+  rating: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
+};
+type Props = {
+  data: DataItem[] /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
+  setData: any;
+};
+
+export default function Home({ data, setData }: Props) {
+  const trends = data.filter((obj) => obj.isTrending === true);
+  const notTrends = data.filter((obj) => obj.isTrending === false);
+
+  const handleTrendBookmarkClick = (index: number) => {
+    setData((prev: DataItem[]) => {
+      return prev.map(item => {
+        if (item.title === trends[index].title) {
+          return {...item, isBookmarked: !item.isBookmarked}
+        } else {
+          return item
+        }
+      })
+    })
+  }
+  const handleNotTrendBookmarkClick = (index: number) => {
+    setData((prev: DataItem[]) => {
+      return prev.map(item => {
+        if (item.title === notTrends[index].title) {
+          return {...item, isBookmarked: !item.isBookmarked}
+        } else {
+          return item
+        }
+      })
+    })
+  }
 
   return (
     <>
@@ -18,8 +64,14 @@ export default function Home() {
                   src={trend.thumbnail.trending?.small}
                   alt="trend"
                 />
-                <div className={styles.circle}>
-                  <div className={styles["bookmarked-logo"]}></div>
+                <div className={styles.circle} onClick={() => handleTrendBookmarkClick(index)}>
+                  <div
+                    className={
+                      trend.isBookmarked
+                        ? styles["bookmarked-logo-active"]
+                        : styles["bookmarked-logo"]
+                    }
+                  ></div>
                 </div>
                 <div className={styles["play-div"]}>
                   <img
@@ -62,9 +114,7 @@ export default function Home() {
       </div>
 
       <div className={styles["recommended-div"]}>
-        <h1 className={styles["recommended-div-title"]}>
-          Recommended for you
-        </h1>
+        <h1 className={styles["recommended-div-title"]}>Recommended for you</h1>
         <div className={styles["recommended-img-container"]}>
           {notTrends.map((notTrend, index) => {
             return (
@@ -75,7 +125,7 @@ export default function Home() {
                     src={notTrend.thumbnail.regular.small}
                     alt="not-trend-movie-img"
                   />
-                  <div className={styles.circle}>
+                  <div className={styles.circle} onClick={() => handleNotTrendBookmarkClick(index)}>
                     {notTrend.isBookmarked ? (
                       <div className={styles["bookmarked-logo-active"]}></div>
                     ) : (
@@ -122,5 +172,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  )
+  );
 }

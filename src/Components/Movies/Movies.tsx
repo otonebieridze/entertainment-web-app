@@ -1,8 +1,44 @@
 import data from "../../data.json";
 import styles from "./Movies.module.css";
 
-export default function Movies() {
+type DataItem = {
+  title: string;
+  thumbnail: {
+    trending?: {
+      small: string;
+      large: string;
+    };
+    regular: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  year: number;
+  category: string;
+  rating: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
+};
+type Props = {
+  data: DataItem[] /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
+  setData: any;
+};
+
+export default function Movies({ data, setData }: Props) {
   let movies = data.filter((obj) => obj.category === "Movie");
+
+  const handleMovieBookmarkClick = (index: number) => {
+    setData((prev: DataItem[]) => {
+      return prev.map(item => {
+        if (item.title === movies[index].title) {
+          return {...item, isBookmarked: !item.isBookmarked}
+        } else {
+          return item
+        }
+      })
+    })
+  }
 
   return (
     <div className={styles["movies-div"]}>
@@ -17,7 +53,7 @@ export default function Movies() {
                   src={movie.thumbnail.regular.small}
                   alt="movie-img"
                 />
-                <div className={styles.circle}>
+                <div className={styles.circle} onClick={() => handleMovieBookmarkClick(index)}>
                   {movie.isBookmarked ? (
                     <div className={styles["bookmarked-logo-active"]}></div>
                   ) : (

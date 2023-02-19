@@ -1,8 +1,44 @@
 import data from "../../data.json";
 import styles from "./TvSeries.module.css";
 
-export default function TvSeries() {
+type DataItem = {
+  title: string;
+  thumbnail: {
+    trending?: {
+      small: string;
+      large: string;
+    };
+    regular: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  year: number;
+  category: string;
+  rating: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
+};
+type Props = {
+  data: DataItem[];
+  setData: any;
+};
+
+export default function TvSeries({ data, setData }: Props) {
   let tvSeries = data.filter((obj) => obj.category === "TV Series");
+
+  const handleTvSeriesBookmarkClick = (index: number) => {
+    setData((prev: DataItem[]) => {
+      return prev.map(item => {
+        if (item.title === tvSeries[index].title) {
+          return {...item, isBookmarked: !item.isBookmarked}
+        } else {
+          return item
+        }
+      })
+    })
+  }
 
   return (
     <div className={styles["tvseries-div"]}>
@@ -17,7 +53,7 @@ export default function TvSeries() {
                   src={item.thumbnail.regular.small}
                   alt="tv-series-img"
                 />
-                <div className={styles.circle}>
+                <div className={styles.circle} onClick={() => handleTvSeriesBookmarkClick(index)}>
                   {item.isBookmarked ? (
                     <div className={styles["bookmarked-logo-active"]}></div>
                   ) : (

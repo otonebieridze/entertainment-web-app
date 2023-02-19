@@ -1,13 +1,56 @@
-import data from "../../data.json";
+import React, { useState } from "react";
 import styles from "./BookMark.module.css";
 
-export default function Movies() {
-  let bookMarkedMovies = data.filter(
-    (obj) => obj.isBookmarked && obj.category === "Movie"
-  );
-  let bookMarkedTvSeries = data.filter(
-    (obj) => obj.isBookmarked && obj.category === "TV Series"
-  );
+type DataItem = {
+  title: string;
+  thumbnail: {
+    trending?: {
+      small: string;
+      large: string;
+    };
+    regular: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  year: number;
+  category: string;
+  rating: string;
+  isBookmarked: boolean;
+  isTrending: boolean;
+};
+type Props = {
+  data: DataItem[] /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
+  setData: any;
+};
+
+export default function Movies({ data, setData }: Props) {
+  const bookMarkedMovies = data.filter(item => item.isBookmarked && item.category === "Movie");
+  const bookMarkedTvSeries = data.filter((item) => item.isBookmarked && item.category === "TV Series");
+
+  const handleMovieBookmarkClick = (index: number) => {
+    setData((prev: DataItem[]) => {
+      return prev.map((item) => {
+        if (item.title === bookMarkedMovies[index].title) {
+          return {...item, isBookmarked: false}
+        } else {
+          return item
+        }
+      })
+    })
+  };
+  const handleTvSeriesBookmarkClick = (index: number) => {
+    setData((prev: DataItem[]) => {
+      return prev.map(item => {
+        if (item.title === bookMarkedTvSeries[index].title) {
+          return {...item, isBookmarked: false}
+        } else {
+          return item
+        }
+      })
+    })
+  }
 
   return (
     <>
@@ -23,7 +66,10 @@ export default function Movies() {
                     src={movie.thumbnail.regular.small}
                     alt="movie-img"
                   />
-                  <div className={styles.circle}>
+                  <div
+                    className={styles.circle}
+                    onClick={() => handleMovieBookmarkClick(index)}
+                  >
                     {movie.isBookmarked ? (
                       <div className={styles["bookmarked-logo-active"]}></div>
                     ) : (
@@ -78,7 +124,7 @@ export default function Movies() {
                     src={item.thumbnail.regular.small}
                     alt="tv-series-img"
                   />
-                  <div className={styles.circle}>
+                  <div className={styles.circle} onClick={() => handleTvSeriesBookmarkClick(index)}>
                     {item.isBookmarked ? (
                       <div className={styles["bookmarked-logo-active"]}></div>
                     ) : (
