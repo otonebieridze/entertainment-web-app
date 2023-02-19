@@ -11,7 +11,7 @@ import BookMark from "../../Components/BookMark/BookMark";
 export default function HomePage() {
   const [currentComponent, setCurrentComponent] = useState("Home");
   const [data, setData] = useState(importedData)
-
+  
   return (
     <div className={styles["container"]}>
       <Menu setCurrentComponent={setCurrentComponent} />
