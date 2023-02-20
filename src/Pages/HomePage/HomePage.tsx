@@ -11,10 +11,17 @@ import BookMark from "../../Components/BookMark/BookMark";
 export default function HomePage() {
   const [currentComponent, setCurrentComponent] = useState("Home");
   const [data, setData] = useState(importedData);
+  const [filteredData, setFilteredData] = useState<typeof data>([]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e: any) => {
-    setData(importedData.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase())));
-  }
+    setInputValue(e.target.value);
+    setFilteredData(
+      data.filter((item) =>
+        item.title.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
+  };
 
   return (
     <div className={styles["container"]}>
@@ -35,10 +42,30 @@ export default function HomePage() {
           />
         </div>
 
-        {currentComponent === "Home" && <Home data={data} setData={setData} />}
-        {currentComponent === "Movies" && <Movies data={data} setData={setData} />}
-        {currentComponent === "TvSeries" && <TvSeries data={data} setData={setData} />}
-        {currentComponent === "BookMark" && <BookMark data={data} setData={setData} />}
+        {currentComponent === "Home" && (
+          <Home
+            data={inputValue.length === 0 ? data : filteredData}
+            setData={setData}
+          />
+        )}
+        {currentComponent === "Movies" && (
+          <Movies
+            data={inputValue.length === 0 ? data : filteredData}
+            setData={setData}
+          />
+        )}
+        {currentComponent === "TvSeries" && (
+          <TvSeries
+            data={inputValue.length === 0 ? data : filteredData}
+            setData={setData}
+          />
+        )}
+        {currentComponent === "BookMark" && (
+          <BookMark
+            data={inputValue.length === 0 ? data : filteredData}
+            setData={setData}
+          />
+        )}
       </section>
     </div>
   );

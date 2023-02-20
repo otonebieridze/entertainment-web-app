@@ -1,5 +1,6 @@
 import styles from "./Home.module.css";
 import importedData from "../../data.json";
+import { useState } from "react";
 
 type DataItem = {
   title: string;
@@ -21,15 +22,24 @@ type DataItem = {
   isTrending: boolean;
 };
 type Props = {
-  data: DataItem[] /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
-  setData: any;
+  data: DataItem[];
+  setData: any /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
 };
 
 export default function Home({ data, setData }: Props) {
-  const trends = importedData.filter((obj) => obj.isTrending === true);
+  const [trends, setTrends] = useState(data.filter((obj) => obj.isTrending === true));
   const notTrends = data.filter((obj) => obj.isTrending === false);
 
   const handleTrendBookmarkClick = (index: number) => {
+    setTrends((prev: DataItem[]) => {
+      return prev.map((item) => {
+        if (item.title === trends[index].title) {
+          return { ...item, isBookmarked: !item.isBookmarked };
+        } else {
+          return item;
+        }
+      });
+    });
     setData((prev: DataItem[]) => {
       return prev.map((item) => {
         if (item.title === trends[index].title) {
@@ -40,6 +50,7 @@ export default function Home({ data, setData }: Props) {
       });
     });
   };
+
   const handleNotTrendBookmarkClick = (index: number) => {
     setData((prev: DataItem[]) => {
       return prev.map((item) => {
