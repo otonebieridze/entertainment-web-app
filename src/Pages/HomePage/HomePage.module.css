@@ -39,3 +39,31 @@
   height: 24px;
   cursor: pointer;
 }
+
+/* //////////// MEDIA /////////// */
+@media (max-width: 730px) {
+  .search-div {
+    margin-left: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+  }
+  .main-section {
+    width: calc(100% - 30px);
+  }
+  .search-inp {
+    font-size: 15px;
+  }
+  .search-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 350px) {
+  .search-div {
+    margin-left: 0px;
+    margin-top: 15px;
+  }
+}

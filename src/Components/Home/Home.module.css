@@ -16,7 +16,7 @@
 }
 .trending-div-slider {
   max-width: 100%;
-  height: 240px;
+  height: 230px;
   display: flex;
   margin-top: 20px;
   overflow-x: auto;
@@ -83,7 +83,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 20px;
-  gap: 20px;
+  gap: 40px;
 }
 .recommended-img-div {
   min-width: 280px;
@@ -190,4 +190,131 @@
 }
 .circle:hover .bookmarked-logo-active {
   background: url("../../../public/assets/BookmarkedIconHovered.png");
+}
+
+/* //////////// MEDIA /////////// */
+@media (max-width: 1154px) {
+  .trending-div {
+    margin-top: 50px;
+  }
+  .recommended-div {
+    margin-top: 80px;
+  }
+  .recommended-div-title {
+    text-align: center;
+    font-size: 34px;
+  }
+  .recommended-img-container {
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+}
+@media (max-width: 730px) {
+  .trending-div {
+    margin-left: 15px;
+  }
+  .trending-img-div {
+    margin-left: 10px;
+  }
+  .trending-image {
+    width: 330px;
+  }
+}
+@media (max-width: 550px) {
+  .recommended-div-title {
+    font-size: 25px;
+  }
+  .trending-image {
+    width: 280px;
+  }
+}
+@media (max-width: 480px) {
+  .trending-div {
+    width: 100%;
+  }
+}
+@media (max-width: 350px) {
+  .trending-div {
+    margin-left: 0px;
+  }
+  .trending-div-title, .recommended-div-title {
+    font-size: 20px;
+    margin-top: -35px;
+  }
+  .trending-div-slider {
+    height: 150px;
+    margin-top: 10px;
+  }
+  .trending-image {
+    width: 230px;
+    height: 150px;
+  }
+  .play-div {
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+  }
+  .play-img {
+    width: 20px;
+    height: 20px;
+  }
+  .play-span {
+    font-size: 15px;
+    margin-left: 13px;
+  }
+  .circle {
+    width: 25px;
+    height: 25px;
+    top: 8px;
+    right: 8px;
+  }
+  .trending-movie-description {
+    min-width: 150px;
+    height: 40px;
+    bottom: -5px;
+  }
+  .trending-movie-description p {
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .trending-movie-description span {
+    font-size: 11px;
+  }
+
+  .recommended-div {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 40px;
+    margin-top: -80px;
+  }
+  .recommended-div-title {
+    width: 175px;
+    margin-left: 0px;
+    text-align: left;
+  }
+  .recommended-img-container {
+    margin-top: 10px;
+  }
+  .recommended-img-div {
+    min-width: 100%;
+    max-width: 100%;
+    height: 160px;
+  }
+  .recommended-img-box {
+    min-width: 100%;
+    max-width: 100%;
+    height: 120px;
+  }
+  .recommended-image {
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .recommended-movie-description p {
+    font-size: 12px;
+  }
+  .recommended-movie-description span {
+    font-size: 11px;
+  }
 }

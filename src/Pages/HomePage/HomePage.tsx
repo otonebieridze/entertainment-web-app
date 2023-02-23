@@ -37,7 +37,7 @@ export default function HomePage() {
           <input
             className={styles["search-inp"]}
             type="text"
-            placeholder="Search for movies or TV series"
+            placeholder="Search for ..."
             onChange={handleInputChange}
           />
         </div>

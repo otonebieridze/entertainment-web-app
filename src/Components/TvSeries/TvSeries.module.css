@@ -127,3 +127,71 @@
 .circle:hover .bookmarked-logo-active {
   background: url("../../../public/assets/BookmarkedIconHovered.png");
 }
+
+/* //////////// MEDIA /////////// */
+@media (max-width: 1114px) {
+  .tvseries-div-title {
+    text-align: center;
+  }
+  .tvseries-img-container {
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+}
+@media (max-width: 350px) {
+  .tvseries-div {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .tvseries-div-title {
+    font-size: 20px;
+  }
+  .tvseries-img-container {
+    margin-top: 10px;
+  }
+  .tvseries-img-div {
+    min-width: 100%;
+    max-width: 100%;
+    height: 160px;
+  }
+  .tvseries-img-box {
+    min-width: 100%;
+    max-width: 100%;
+    height: 120px;
+  }
+  .tvseries-image {
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .tvseries-description p {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .tvseries-description span {
+    font-size: 11px;
+  }
+
+  .play-div {
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+  }
+  .play-img {
+    width: 20px;
+    height: 20px;
+  }
+  .play-span {
+    font-size: 15px;
+    margin-left: 13px;
+  }
+  .circle {
+    width: 25px;
+    height: 25px;
+    top: 8px;
+    right: 8px;
+  }
+}
