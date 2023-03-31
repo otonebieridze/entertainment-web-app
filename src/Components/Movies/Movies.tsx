@@ -1,4 +1,3 @@
-import data from "../../data.json";
 import styles from "./Movies.module.css";
 
 type DataItem = {
@@ -21,12 +20,17 @@ type DataItem = {
   isTrending: boolean;
 };
 type Props = {
-  data: DataItem[] /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
+  data: DataItem[];
   setData: any;
+  inputValue: string;
 };
 
-export default function Movies({ data, setData }: Props) {
-  let movies = data.filter((obj) => obj.category === "Movie");
+export default function Movies({ data, setData, inputValue }: Props) {
+  let movies = data.filter(
+    (obj) =>
+      obj.category === "Movie" &&
+      obj.title.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
   const handleMovieBookmarkClick = (index: number) => {
     setData((prev: DataItem[]) => {

@@ -1,4 +1,3 @@
-import data from "../../data.json";
 import styles from "./TvSeries.module.css";
 
 type DataItem = {
@@ -23,10 +22,15 @@ type DataItem = {
 type Props = {
   data: DataItem[];
   setData: any;
+  inputValue: string;
 };
 
-export default function TvSeries({ data, setData }: Props) {
-  let tvSeries = data.filter((obj) => obj.category === "TV Series");
+export default function TvSeries({ data, setData, inputValue }: Props) {
+  let tvSeries = data.filter(
+    (obj) =>
+      obj.category === "TV Series" &&
+      obj.title.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
   const handleTvSeriesBookmarkClick = (index: number) => {
     setData((prev: DataItem[]) => {

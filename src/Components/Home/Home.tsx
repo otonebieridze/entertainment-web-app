@@ -1,5 +1,4 @@
 import styles from "./Home.module.css";
-import importedData from "../../data.json";
 import { useState } from "react";
 
 type DataItem = {
@@ -23,12 +22,19 @@ type DataItem = {
 };
 type Props = {
   data: DataItem[];
-  setData: any /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
+  setData: any;
+  inputValue: string;
 };
 
-export default function Home({ data, setData }: Props) {
-  const [trends, setTrends] = useState(data.filter((obj) => obj.isTrending === true));
-  const notTrends = data.filter((obj) => obj.isTrending === false);
+export default function Home({ data, setData, inputValue }: Props) {
+  const [trends, setTrends] = useState(
+    data.filter((obj) => obj.isTrending === true)
+  );
+  const notTrends = data.filter(
+    (obj) =>
+      obj.isTrending === false &&
+      obj.title.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
   const handleTrendBookmarkClick = (index: number) => {
     setTrends((prev: DataItem[]) => {
@@ -132,7 +138,14 @@ export default function Home({ data, setData }: Props) {
         <h1 className={styles["recommended-div-title"]}>Recommended for you</h1>
         <div className={styles["recommended-img-container"]}>
           {notTrends.length === 0 ? (
-            <h1 style={{ color: "#be0d00", fontSize: "28px", marginTop: "50px", marginLeft: "10px" }}>
+            <h1
+              style={{
+                color: "#be0d00",
+                fontSize: "28px",
+                marginTop: "50px",
+                marginLeft: "10px",
+              }}
+            >
               Not Found!
             </h1>
           ) : (

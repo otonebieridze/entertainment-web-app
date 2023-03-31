@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styles from "./BookMark.module.css";
 
 type DataItem = {
@@ -21,16 +20,23 @@ type DataItem = {
   isTrending: boolean;
 };
 type Props = {
-  data: DataItem[] /* React.Dispatch<React.SetStateAction<DataItemType[]>> */;
+  data: DataItem[];
   setData: any;
+  inputValue: string;
 };
 
-export default function Movies({ data, setData }: Props) {
+export default function Movies({ data, setData, inputValue }: Props) {
   const bookMarkedMovies = data.filter(
-    (item) => item.isBookmarked && item.category === "Movie"
+    (item) =>
+      item.isBookmarked &&
+      item.category === "Movie" &&
+      item.title.toLowerCase().includes(inputValue.toLowerCase())
   );
   const bookMarkedTvSeries = data.filter(
-    (item) => item.isBookmarked && item.category === "TV Series"
+    (item) =>
+      item.isBookmarked &&
+      item.category === "TV Series" &&
+      item.title.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   const handleMovieBookmarkClick = (index: number) => {

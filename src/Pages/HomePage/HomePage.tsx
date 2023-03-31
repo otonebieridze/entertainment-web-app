@@ -44,26 +44,30 @@ export default function HomePage() {
 
         {currentComponent === "Home" && (
           <Home
-            data={inputValue.length === 0 ? data : filteredData}
+            data={data}
             setData={setData}
+            inputValue={inputValue}
           />
         )}
         {currentComponent === "Movies" && (
           <Movies
-            data={inputValue.length === 0 ? data : filteredData}
+            data={data}
             setData={setData}
+            inputValue={inputValue}
           />
         )}
         {currentComponent === "TvSeries" && (
           <TvSeries
-            data={inputValue.length === 0 ? data : filteredData}
+            data={data}
             setData={setData}
+            inputValue={inputValue}
           />
         )}
         {currentComponent === "BookMark" && (
           <BookMark
-            data={inputValue.length === 0 ? data : filteredData}
+            data={data}
             setData={setData}
+            inputValue={inputValue}
           />
         )}
       </section>
