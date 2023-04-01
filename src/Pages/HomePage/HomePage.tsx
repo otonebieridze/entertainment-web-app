@@ -11,16 +11,10 @@ import BookMark from "../../Components/BookMark/BookMark";
 export default function HomePage() {
   const [currentComponent, setCurrentComponent] = useState("Home");
   const [data, setData] = useState(importedData);
-  const [filteredData, setFilteredData] = useState<typeof data>([]);
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e: any) => {
     setInputValue(e.target.value);
-    setFilteredData(
-      data.filter((item) =>
-        item.title.toLowerCase().includes(e.target.value.toLowerCase())
-      )
-    );
   };
 
   return (

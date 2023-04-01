@@ -1,6 +1,11 @@
 import styles from "./Home.module.css";
 import { useState } from "react";
 
+import { A11y, Navigation, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 type DataItem = {
   title: string;
   thumbnail: {
@@ -73,10 +78,15 @@ export default function Home({ data, setData, inputValue }: Props) {
     <>
       <div className={styles["trending-div"]}>
         <h1 className={styles["trending-div-title"]}>Trending</h1>
-        <div className={styles["trending-div-slider"]}>
+        <Swiper
+          modules={[Navigation, Pagination, A11y]}
+          spaceBetween={30}
+          slidesPerView="auto"
+          className={styles["trending-div-slider"]}
+        >
           {trends.map((trend, index) => {
             return (
-              <div key={index} className={styles["trending-img-div"]}>
+              <SwiperSlide key={index} className={styles["trending-img-div"]}>
                 <img
                   className={styles["trending-image"]}
                   src={trend.thumbnail.trending?.small}
@@ -128,10 +138,10 @@ export default function Home({ data, setData, inputValue }: Props) {
                   </div>
                   <p>{trend.title}</p>
                 </div>
-              </div>
+              </SwiperSlide>
             );
           })}
-        </div>
+        </Swiper>
       </div>
 
       <div className={styles["recommended-div"]}>

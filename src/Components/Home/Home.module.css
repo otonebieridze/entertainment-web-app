@@ -25,7 +25,7 @@
   display: none;
 }
 .trending-img-div {
-  margin-left: 30px;
+  max-width: 480px;
   position: relative;
 }
 .trending-img-div:first-child {
@@ -51,7 +51,7 @@
   font-weight: 500;
   color: #FFFFFF;
   position: absolute;
-  bottom: 24px;
+  bottom: 10px;
   left: 24px;
 }
 .trending-movie-description p {
@@ -214,7 +214,7 @@
     margin-left: 15px;
   }
   .trending-img-div {
-    margin-left: 10px;
+    max-width: 330px;
   }
   .trending-image {
     width: 330px;
@@ -223,6 +223,9 @@
 @media (max-width: 550px) {
   .recommended-div-title {
     font-size: 25px;
+  }
+  .trending-img-div {
+    max-width: 280px;
   }
   .trending-image {
     width: 280px;
@@ -242,6 +245,7 @@
     margin-top: -35px;
   }
   .trending-div-slider {
+    max-width: 230px;
     height: 150px;
     margin-top: 10px;
   }
