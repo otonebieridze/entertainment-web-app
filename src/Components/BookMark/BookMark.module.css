@@ -18,7 +18,7 @@
 .movies-img-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 20px;
   gap: 20px;
@@ -84,7 +84,7 @@
 .tvseries-img-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 20px;
   gap: 20px;
@@ -182,18 +182,18 @@
 .bookmarked-logo {
   width: 12px;
   height: 14px;
-  background: url("../../../public/assets/BookmarkedIcon.png");
+  background: url("/assets/BookmarkedIcon.png");
 }
 .bookmarked-logo-active {
   width: 12px;
   height: 14px;
-  background: url("../../../public/assets/BookmarkedIconActive.png");
+  background: url("/assets/BookmarkedIconActive.png");
 }
 .circle:hover .bookmarked-logo {
-  background: url("../../../public/assets/BookmarkedIconHovered.png");
+  background: url("/assets/BookmarkedIconHovered.png");
 }
 .circle:hover .bookmarked-logo-active {
-  background: url("../../../public/assets/BookmarkedIconHovered.png");
+  background: url("/assets/BookmarkedIconHovered.png");
 }
 
 /* //////////// MEDIA /////////// */
@@ -202,7 +202,7 @@
     text-align: center;
   }
   .tvseries-img-container, .movies-img-container {
-    justify-content: space-around;
+    justify-content: center;
     margin-top: 40px;
   }
 }

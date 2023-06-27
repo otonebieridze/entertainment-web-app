@@ -1,5 +1,5 @@
 .menu-section {
-  width: 100px;
+  width: 65px;
   height: calc(100vh - 20px);
   background: #161D2F;
   border-radius: 20px;
@@ -10,8 +10,8 @@
   align-items: center;
 }
 .logo {
-  width: 33px;
-  height: 25px;
+  width: 25px;
+  height: 20px;
   margin-top: 30px;
 }
 .menu {
@@ -22,19 +22,19 @@
   margin-top: 30px;
 }
 .menu img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   margin-top: 40px;
   cursor: pointer;
   transition: 0.2s;
 }
 .menu img:hover {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
 }
 .profile-photo {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   position: absolute;
   bottom: 30px;
   cursor: pointer;
